@@ -1,0 +1,45 @@
+- QUESTION QUANTITY & RATIO (>= 5 QUESTIONS PER PAGE MANDATORY):
+  - Every page MUST contain AT LEAST 5 distinct questions.
+  - 80% of questions MUST be Content-Based (Visual Observation, Story Plot Comprehension, Character Feelings directly on Page N).
+  - 20% of questions MUST be Elaboration / Open-Ended (Personal Connection, Real-World Knowledge).
+
+- LEVEL-APPROPRIATE VOCABULARY FOR 10YO CHINESE ESL LEARNERS (A1/A2 LEVEL):
+  - Questions and answers MUST use simple, everyday English.
+  - AVOID overly complex/academic terms like "produce section", "department", or "retail establishment".
+  - Use simple words instead (e.g. "fruit and vegetables" instead of "produce section").
+
+- DIRECT & NATURAL COVER QUESTIONS:
+  - Ask cover questions in the most direct, natural way.
+  - USE: "What's the title of the book?"
+  - AVOID: "What title do you see on the book cover?" or "What main title text is displayed?"
+
+- CLEAN RETELLING GRAMMAR & PUNCTUATION:
+  - Ensure the blanked words grammatically fit the sentence skeleton and parenthetical answers.
+  - NEVER output trailing semicolons (;) or mismatched words in retelling lines.
+
+- CONDITIONAL SCENARIO ELABORATION ("What do you need...?"):
+  - Apply "What do you need when..." ONLY when the page depicts a significant scenario (swimming, riding a bike, cooking). Do NOT force it on minor pages.
+
+- NO "MAKE A SENTENCE" QUESTIONS ON PAGES.
+- NO childish role-play, TPR, or physical movement games (~10+ yo students).
+- NO LETTER-COUNTING OR REPETITIVE VOCABULARY MEANINGS.
+- Story questions must strictly match the original story tense (Past Tense for past stories, Present for present).
+- Page N questions must ONLY ask about Page N. No "Looking back at page X" questions.
+
+- INTERACTIVE VOCABULARY FORMAT (BLUE FONT):
+  - Vocabulary entries MUST follow this exact pattern:
+    word — Guiding/Interactive explanation! Simple interactive question?
+  - Example: "moon — The big round white ball glowing in the night sky! Is the moon square or round?"
+  - Example: "beach — Soft sand next to the big blue ocean! Have you been to a beach?"
+  - NEVER repeat the word twice (AVOID "moon — moon — white ball").
+  - NEVER use letter-counting gimmicks (AVOID "m-o-o-n, 4 letters").
+
+- NO DUPLICATE VOCABULARY WORDS IN JSON:
+  - In the JSON output, the "meaning" field MUST NOT repeat the "word" or include a dash.
+  - BAD JSON: "word": "classroom", "meaning": "classroom — A special room..."
+  - GOOD JSON: "word": "classroom", "meaning": "A special room with desks and chairs where students learn! What color is your classroom door?"
+
+- GAME DIVERSITY MANDATE:
+  - Do NOT default to "Magic Cover" or "Sentence Builder" for every book!
+  - You MUST dynamically select 2 DIFFERENT game styles from the QKids Game Bank (Games A through O) based on the book's unique content.
+  - Rotate frequently between: "Two Truths and a Lie", "Prediction Box", "Rhyme Detective", "Best Choice Justification", "What's Missing?", "Choice Combo", and "Memory Challenge".

@@ -1,0 +1,6 @@
+venv/
+.env
+output_lessons/
+*.json
+books/temp_*
+.DS_Store
