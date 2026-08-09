@@ -1,1 +1,6 @@
+google-genai
+python-dotenv
+python-docx
+Pillow
+streamlit
 json-repair
