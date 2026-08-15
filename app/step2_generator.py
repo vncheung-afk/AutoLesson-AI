@@ -72,12 +72,26 @@ def generate_lesson_plan(analysis_json_path: str) -> dict:
     game_bank = load_file_content(GAME_BANK_FILE, "QKids Game Bank")
     user_feedback = load_file_content(FEEDBACK_FILE, "Custom Teacher Rules")
 
+    story_analysis = analysis_data.get("story_analysis", {}) if isinstance(analysis_data, dict) else {}
+    book_genre = story_analysis.get("book_genre", "Narrative Story")
+    print(f"Generating lesson plan for classified genre: [{book_genre}]...")
     print("Generating QKids lesson with MANDATORY fill-in-the-blank retelling scaffolds...")
 
     system_instruction = f"""
     You are an expert ESL Picture Book Curriculum Designer for QKids (online 1-on-1 lessons for ~10yo students in China).
     Your task is to take the provided Book Analysis JSON and create an accurate, 25-minute ESL lesson plan.
 
+    CLASSIFIED BOOK GENRE FOR THIS LESSON: [{book_genre}]
+
+    PEDAGOGICAL RULES BASED ON CLASSIFIED GENRE:
+    1. IF GENRE IS "Non-Fiction / Science" OR "Daily Routine / Activity":
+       - Focus heavily on VOCABULARY ELABORATION & PICTURE EXTRACTION.
+       - Ask "What do you need when you [action]?" to introduce related gear/equipment.
+       - Identify typical sentence structures and DRILL THEM in Grammar and Games!
+    2. IF GENRE IS "Narrative Story":
+       - Focus on story plot, character feelings, and cause/effect reasoning.
+
+    CRITICAL PEDAGOGY RULES:
     MANDATORY RETELLING SCAFFOLDING FORMAT (NON-NEGOTIABLE):
     - 'story_retelling' lines MUST NEVER BE FULL UNBLANKED SENTENCES!
     - Every single retelling line MUST contain blank underlines ______ AND parenthetical answer keys at the end.
@@ -104,9 +118,18 @@ def generate_lesson_plan(analysis_json_path: str) -> dict:
     4. CONDITIONAL SCENARIO ELABORATION ("What do you need...?"):
        - Apply "What do you need when..." ONLY when the page depicts a significant scenario (swimming, riding a bike, cooking). Do NOT force it on minor pages.
 
-    5. ZERO-TYPING QKIDS GAMES ONLY:
-       - Select 2 games directly from this Game Bank (no live-typing games):
+    5. ZERO-TYPING QKIDS GAMES — VARIED AND BOOK-SPECIFIC:
+       - Select 2 games from this Game Bank (no live-typing games):
          {game_bank}
+       - Pick your 2 games from 2 DIFFERENT categories in the bank (Vocabulary / Grammar & Sentence / Phonics / Picture Book Thinking) rather than defaulting to the same category or the same games every time.
+       - Favor ⭐⭐⭐⭐⭐ games when they fit the book, but the actual fit to this specific story matters more than the star rating.
+       - Fill in each game's "Teacher says" and "Student output" using this book's actual vocabulary, objects, or story events — follow the bank's own example format (e.g. "It is a [boot]." becomes a real object from this page) rather than leaving it generic.
+       - For each of the 2 chosen games, generate at least 3 concrete, ready-to-use rounds in an "examples" field — actual on-screen content built from THIS book's vocabulary and pages, ready to display in class with no further work needed. Never output a description of what a round should contain — output the round itself. Match the format to the game type:
+         * Sentence Builder: scrambled word chunks shown as pipe-separated tokens in SCRAMBLED (non-grammatical) order, e.g. "eating | The | is | dog | meat", plus the correct answer sentence.
+         * Mystery Box / What's Missing?: the hidden/missing item plus the reveal order or the full item set shown.
+         * Two Truths and a Lie: 3 statements about the page (2 true, 1 false) plus which one is the lie.
+         * Prediction Box / Best Choice: the 3 A/B/C options shown plus a sample justified answer.
+         * Any other game type: the actual on-screen content needed to run that round, in that game's own format from the bank.
 
     6. NO "MAKE A SENTENCE" QUESTIONS ON PAGES.
     7. NO LETTER-COUNTING OR REPETITIVE VOCABULARY MEANINGS.
@@ -181,7 +204,12 @@ def generate_lesson_plan(analysis_json_path: str) -> dict:
             "Show image covered by digital boxes"
           ],
           "teacher_says": "What is hidden here?",
-          "student_output": "Full sentence response"
+          "student_output": "Full sentence response",
+          "examples": [
+            {{"round": "1", "content": "Hidden item: backpack. Reveal order: strap, buckle, whole bag.", "answer": "It is a backpack."}},
+            {{"round": "2", "content": "Hidden item: book. Reveal order: corner, spine, whole book.", "answer": "It is a book."}},
+            {{"round": "3", "content": "Hidden item: teacher's desk. Reveal order: leg, drawer, whole desk.", "answer": "It is a desk."}}
+          ]
         }},
         {{
           "game_type": "Sentence Builder",
@@ -191,7 +219,12 @@ def generate_lesson_plan(analysis_json_path: str) -> dict:
             "Show scrambled word blocks"
           ],
           "teacher_says": "Put the words in order!",
-          "student_output": "Full sentence response"
+          "student_output": "Full sentence response",
+          "examples": [
+            {{"round": "1", "scrambled": "eating | The | is | dog | meat", "answer": "The dog is eating meat."}},
+            {{"round": "2", "scrambled": "school | to | the children | walk", "answer": "The children walk to school."}},
+            {{"round": "3", "scrambled": "at us | smiles | our teacher", "answer": "Our teacher smiles at us."}}
+          ]
         }}
       ],
       "story_retelling": [

@@ -84,7 +84,8 @@ def audit_and_revise_lesson(lesson_json_path: str) -> dict:
     [ ] DIRECT COVER QUESTIONS: Cover asks "What's the title of the book?" in a direct, natural way.
     [ ] CONDITIONAL SCENARIO ELABORATION: Scenario elaboration ('What do you need when...?') is applied ONLY on pages with significant scenarios.
     [ ] NO MAKE A SENTENCE ON PAGES: Page questions MUST NOT ask students to 'make a sentence'.
-    [ ] ZERO TYPING QKIDS GAMES: Games use zero-typing on-screen setups from Game Bank.
+    [ ] ZERO TYPING, VARIED, BOOK-SPECIFIC GAMES: Games use zero-typing setups from the Game Bank, drawn from 2 different bank categories, with Teacher says / Student output filled in using this book's actual content rather than generic placeholders. Flag if the same games are reused lesson after lesson instead of the best fit for this book.
+    [ ] GAME EXAMPLES ARE USABLE, NOT DESCRIPTIVE: Each game has at least 3 concrete "examples" entries built from this book's real content, ready to display in class with no further work — not a generic description of the game mechanic. Sentence Builder examples must show scrambled word chunks as pipe-separated tokens in non-grammatical order (e.g. "eating | The | is | dog | meat") plus the correct answer sentence.
     [ ] NO LETTER COUNTING / NO REPETITIVE VOCAB: Vocabulary meanings MUST NOT repeat the word twice or use letter-counting.
     [ ] TENSE MATCHING: Story questions strictly match story tense.
     [ ] NO LOOKING BACK QUESTIONS: Page N questions only ask about Page N.

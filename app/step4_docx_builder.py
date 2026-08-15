@@ -203,6 +203,18 @@ def build_docx_from_json(json_path: str, output_docx_path: str):
 
             p_gm.add_run(f"Student output: \"{game.get('student_output', '')}\"\n").italic = True
 
+            examples = game.get("examples", [])
+            if isinstance(examples, list) and examples:
+                p_gm.add_run("Examples:\n").bold = True
+                for ex in examples:
+                    ex = safe_get_dict(ex) if not isinstance(ex, dict) else ex
+                    if "scrambled" in ex:
+                        p_gm.add_run(f"  • {ex.get('scrambled', '')}  →  {ex.get('answer', '')}\n")
+                    elif "content" in ex:
+                        p_gm.add_run(f"  • {ex.get('content', '')}  →  {ex.get('answer', '')}\n")
+                    else:
+                        p_gm.add_run(f"  • {ex}\n")
+
     # 7. Story Retelling
     p_ret_head = doc.add_paragraph()
     r = p_ret_head.add_run("Story Retelling")

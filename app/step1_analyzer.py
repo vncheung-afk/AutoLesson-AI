@@ -60,10 +60,10 @@ def analyze_picture_book(book_package: dict) -> dict:
     print(f"[{book_title}] Upload complete. Extracting exact quotes and language features...")
 
     system_instruction = """
-    You are an expert ESL Picture Book Curriculum Designer.
-    Your task is to analyze the attached picture book PDF and extract EXACT page quotes and visual details.
-    You must NOT invent or rephrase story text. Copy exact text from each page.
-    """
+You are an expert ESL Picture Book Curriculum Designer.
+Your task is to analyze the attached picture book PDF, classify its book genre, and extract EXACT page quotes and visual details.
+You must NOT invent or rephrase story text. Copy exact text from each page.
+"""
 
     prompt = """
     Perform a complete 'Picture Book Analysis' on this PDF using the following JSON structure:
@@ -74,7 +74,8 @@ def analyze_picture_book(book_package: dict) -> dict:
         "estimated_reading_difficulty": "String",
         "main_characters": ["String"]
       },
-      "story_analysis": {
+       "story_analysis": {
+        "book_genre": "Narrative Story OR Non-Fiction / Science OR Daily Routine / Activity",
         "original_story_tense": "Past Tense OR Present Tense",
         "short_summary": "3-5 sentences summary",
         "pages_breakdown": [
@@ -109,7 +110,8 @@ def analyze_picture_book(book_package: dict) -> dict:
 
     OUTPUT RULES:
     1. Respond ONLY with valid JSON.
-    2. Ensure exact_story_text contains the exact verbatim text printed on each page.
+    2. Classify book_genre accurately as "Narrative Story", "Non-Fiction / Science", or "Daily Routine / Activity".
+    3. Ensure exact_story_text contains the exact verbatim text printed on each page.
     """
 
     try:

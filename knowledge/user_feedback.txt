@@ -1,17 +1,27 @@
-- NO DUPLICATE VOCABULARY WORDS IN JSON (STRICT RULE):
-  - Do NOT include the vocabulary word or a dash inside the JSON "meaning" field!
-  - The "word" field contains the word (e.g. "moon").
-  - The "meaning" field contains ONLY the explanation and follow-up question.
-  - ❌ BAD JSON: "word": "moon", "meaning": "moon — A big bright ball! Have you seen the moon?"
-  - ✅ GOOD JSON: "word": "moon", "meaning": "A big bright ball glowing in the night sky! Have you seen the moon at night?"
+- STRICT STORY TENSE MATCHING (MANDATORY & NON-NEGOTIABLE):
+  - Check the 'original_story_tense' from the Book Analysis.
+  - ALL story comprehension questions and answers MUST strictly match the story's tense!
+  - IF THE BOOK IS PAST TENSE (e.g. went, looked, ran, saw):
+    * ✅ USE: "Where did Hermit Crab go? / She went inside..."
+    * ✅ USE: "What did Rico see? / He saw a dog..."
+    * ❌ BANNED: "Where is Hermit Crab going?" or "What is Rico seeing?" (DO NOT use present tense for past tense stories!).
+  - Present Continuous ("What is [character] doing?") is ONLY allowed for picture observation questions.
 
-- NO QUESTION CATEGORY LABELS OR PREFIXES:
-  - Do NOT prefix questions with category labels like "Visual observation:", "Content Q1:", "Story comprehension:", "Elaboration:", or "Personal connection:".
-  - Write ONLY the clean, direct question text!
-  - ❌ BAD: "Visual observation: What can you see in the picture?"
-  - ✅ GOOD: "What can you see in the picture?"
+- NO DUPLICATE VOCABULARY WORDS IN JSON:
+  - In the JSON output, the "meaning" field MUST NOT repeat the "word" or include a dash.
+  - ❌ BAD JSON: "word": "classroom", "meaning": "classroom — A special room..."
+  - ✅ GOOD JSON: "word": "classroom", "meaning": "A special room with desks and chairs where students learn! What color is your classroom door?"
 
-- BANNED COVER COLOR QUESTIONS:
+- INTERACTIVE VOCABULARY FORMAT (BLUE FONT):
+  - Vocabulary entries MUST follow this pattern: word — Guiding explanation! Interactive question?
+  - Example: "moon — The big round white ball glowing in the night sky! Have you seen the moon at night?"
+  - NEVER repeat the word twice. NEVER use letter-counting gimmicks.
+
+- ROTATE GAMES FREQUENTLY:
+  - Select 2 DIFFERENT games from the QKids Game Bank for each book!
+  - Rotate frequently between: "Sentence Builder", "Memory Challenge", "Category Sort", "Prediction Box", "Best Choice", and "Count & Speak". NO live-typing games.
+
+- ABSOLUTELY BANNED COVER COLOR QUESTIONS:
   - Do NOT ask "What color..." or "What colors do you see..." on the cover page!
   - Cover questions MUST ONLY ask:
     1. "What's the title of the book?"
@@ -20,8 +30,8 @@
 
 - QUESTION QUANTITY & RATIO (>= 5 QUESTIONS PER PAGE MANDATORY):
   - Every page MUST contain AT LEAST 5 distinct questions.
-  - 80% of questions MUST be Content-Based (Visual Observation, Story Plot, Character Feelings directly on Page N).
-  - 20% of questions MUST be Elaboration / Open-Ended (Personal Connection, Real-World Knowledge).
+  - 80% Content-Based (Visual Observation, Story Plot, Character Feelings directly on Page N).
+  - 20% Elaboration / Open-Ended (Personal Connection, Real-World Knowledge).
 
 - CONDITIONAL SCENARIO ELABORATION ("What do you need...?"):
   - Apply "What do you need when..." ONLY when the page depicts a significant scenario (swimming, riding a bike, cooking). Do NOT force it on minor pages.
@@ -32,42 +42,4 @@
 
 - NO "MAKE A SENTENCE" QUESTIONS ON PAGES.
 - NO childish role-play, TPR, or physical movement games (~10+ yo students).
-- Story questions must strictly match the original story tense.
-- Page N questions must ONLY ask about Page N. No "Looking back at page X" questions.
-EOFcat << 'EOF' > knowledge/user_feedback.txt
-- NO DUPLICATE VOCABULARY WORDS IN JSON (STRICT RULE):
-  - Do NOT include the vocabulary word inside the JSON "meaning" field!
-  - The "word" field contains the word (e.g. "moon").
-  - The "meaning" field contains ONLY the explanation and follow-up question.
-  - ❌ BAD JSON: "word": "moon", "meaning": "— A big bright ball! Have you seen the moon?"
-  - ✅ GOOD JSON: "word": "moon", "meaning": "A big bright ball glowing in the night sky! Have you seen the moon at night?"
-
-- NO QUESTION CATEGORY LABELS OR PREFIXES:
-  - Do NOT prefix questions with category labels like "Visual observation:", "Content Q1:", "Story comprehension:", "Elaboration:", or "Personal connection:".
-  - Write ONLY the clean, direct question text!
-  - ❌ BAD: "Visual observation: What can you see in the picture?"
-  - ✅ GOOD: "What can you see in the picture?"
-
-- BANNED COVER COLOR QUESTIONS:
-  - Do NOT ask "What color..." or "What colors do you see..." on the cover page!
-  - Cover questions MUST ask:
-    1. "What's the title of the book?"
-    2. "What do you see on the cover?" or "What is happening in the picture?"
-    3. "Where are they?"
-
-- QUESTION QUANTITY & RATIO (>= 5 QUESTIONS PER PAGE MANDATORY):
-  - Every page MUST contain AT LEAST 5 distinct questions.
-  - 80% of questions MUST be Content-Based (Visual Observation, Story Plot, Character Feelings directly on Page N).
-  - 20% of questions MUST be Elaboration / Open-Ended (Personal Connection, Real-World Knowledge).
-
-- CONDITIONAL SCENARIO ELABORATION ("What do you need...?"):
-  - Apply "What do you need when..." when the page depicts a daily scenario (e.g. swimming, riding a bike, cooking). Do NOT force it on minor pages.
-
-- GUIDED RETELLING SCAFFOLDING:
-  - Retelling lines MUST contain blank underlines ______ AND parenthetical answers at the end: "First, Bert and Beth ______ to the ______ on a sunny day. (went; beach)".
-  - NO square brackets [...] in retelling.
-
-- NO "MAKE A SENTENCE" QUESTIONS ON PAGES.
-- NO childish role-play, TPR, or physical movement games (~10+ yo students).
-- Story questions must strictly match the original story tense.
 - Page N questions must ONLY ask about Page N. No "Looking back at page X" questions.

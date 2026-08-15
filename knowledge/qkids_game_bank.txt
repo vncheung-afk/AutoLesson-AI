@@ -1,50 +1,31 @@
-QKIDS GAME BANK FRAMEWORK (Select 2 varied ZERO-TYPING games per lesson):
+QKIDS GAME BANK FRAMEWORK (Select 2 varied games per lesson):
 
 1. VOCABULARY GAMES
-- Game A: Mystery Box / Magic Cover ⭐⭐⭐⭐⭐
-  Tools: Image hidden by digital boxes/shapes. Reveal one part at a time.
-  Teacher says: "What is hidden here? Let's open one square!"
-  Student output: "It is a [boot]." (Upgrade: "What color is it?")
 
-- Game B: What's Missing?
+- What's Missing?
   Tools: 4 stickers/pictures on screen. Teacher covers one item.
   Teacher says: "Open your eyes! What's missing?"
   Student output: "The [shoe] is missing."
 
-- Game C: Category Sort
-  Tools: Two category boxes drawn on screen (e.g. Food vs Things).
-  Student output: "[Cake] is food."
-
-2. GRAMMAR & SENTENCE GAMES (ZERO LIVE TYPING)
-- Game D: Sentence Builder ⭐⭐⭐⭐⭐
+2. GRAMMAR & SENTENCE GAMES
+- Sentence Builder
   Tools: Word/picture blocks pre-placed on screen (Dog | is | eating | meat).
   Student output: "The dog is eating meat."
 
-- Game E: Choice Combo / Spin & Speak
+- Choice Combo
   Tools: 3 columns on screen (Who? / Action / Thing).
   Student output: "The dog is eating cake."
 
-- Game F: Two Truths and a Lie (Fact Checker) ⭐⭐⭐⭐⭐
+- Two Truths and a Lie (Fact Checker)
   Tools: 3 statements about the page picture displayed on screen (2 real, 1 fake).
   Teacher says: "Which statement is a lie?"
   Student output: "Statement 2 is a lie! The dog is sleeping, not running."
 
 3. PHONICS / RHYMING GAMES
-- Game G: Rhyme Detective
-  Tools: Target word + 3 picture choices.
+- Rhyme Detective
+  Tools: Target word + 3 word choices.
   Student output: "Bear rhymes with chair."
 
-- Game H: Sound Hunt
+- Sound Hunt
   Teacher says: "Find things on screen with the /b/ sound."
   Student output: "Book starts with /b/."
-
-4. PICTURE BOOK THINKING GAMES (Higher-Order Thinking)
-- Game I: Prediction Box ⭐⭐⭐⭐⭐
-  Tools: 3 choice boxes (A, B, C) before turning the next page.
-  Teacher says: "What will happen next?"
-  Student output: "I think the dog will chew the shoe because [he is hungry]."
-
-- Game J: Best Choice / Justification ⭐⭐⭐⭐⭐
-  Tools: 3 story options shown on screen.
-  Teacher asks: "Which cake is the best?"
-  Student output: "The best cake is Cake C because [we made it together]."
