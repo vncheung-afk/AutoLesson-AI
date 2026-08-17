@@ -75,7 +75,7 @@ You must NOT invent or rephrase story text. Copy exact text from each page.
         "main_characters": ["String"]
       },
        "story_analysis": {
-        "book_genre": "Narrative Story OR Non-Fiction / Science OR Daily Routine / Activity",
+        "book_genre": "Fiction OR Scenario/Daily Routine OR Drilling OR Phonics OR Knowledge-Based",
         "original_story_tense": "Past Tense OR Present Tense",
         "short_summary": "3-5 sentences summary",
         "pages_breakdown": [
@@ -110,7 +110,13 @@ You must NOT invent or rephrase story text. Copy exact text from each page.
 
     OUTPUT RULES:
     1. Respond ONLY with valid JSON.
-    2. Classify book_genre accurately as "Narrative Story", "Non-Fiction / Science", or "Daily Routine / Activity".
+    2. Classify book_genre accurately using this guide:
+       - "Fiction": Character-driven story with a plot, feelings, or cause/effect events.
+       - "Scenario/Daily Routine": Everyday-life situations (getting dressed, going to the doctor, a school day, etc.) without a strong plot arc.
+       - "Drilling": Built on a clearly repeated/predictable sentence structure across pages (check ranked_teaching_priorities and repeated phrasing patterns).
+       - "Phonics": Built primarily around rhyme, sound play, or CVC/decodable words (check rhyming_words and sound_patterns — if these are rich and central to the book, classify as Phonics even if there is a light plot).
+       - "Knowledge-Based": Informational/topic content teaching real-world facts about a theme (animals, weather, insects, science, etc.) without a character-driven plot.
+       Base this on the language_feature_analysis data (ranked_teaching_priorities, rhyming_words, sound_patterns), not just the surface story content.
     3. Ensure exact_story_text contains the exact verbatim text printed on each page.
     """
 

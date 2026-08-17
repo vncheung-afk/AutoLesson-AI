@@ -65,39 +65,25 @@ def process_all_books():
             with open(TEMP_ANALYSIS, "w", encoding="utf-8") as f:
                 json.dump(analysis_data, f, indent=2)
 
-            classified_genre = analysis_data.get("story_analysis", {}).get("book_genre", "UNKNOWN")
-            print(f"   \U0001F4DA Classified genre: {classified_genre}")
-
             # Step 2: Lesson Generation
             draft_lesson = generate_lesson_plan(TEMP_ANALYSIS)
             with open(TEMP_LESSON, "w", encoding="utf-8") as f:
                 json.dump(draft_lesson, f, indent=2)
 
-            # Step 3: Critic Audit (loop — critic re-checks its own revision up to MAX_CRITIC_PASSES times)
-            MAX_CRITIC_PASSES = 2
-            revised_lesson = draft_lesson
-            for critic_pass in range(1, MAX_CRITIC_PASSES + 1):
-                audit_result = audit_and_revise_lesson(TEMP_LESSON)
-                if isinstance(audit_result, dict):
-                    revised_lesson = audit_result.get("revised_lesson", {})
-                    if isinstance(revised_lesson, str):
-                        try:
-                            revised_lesson = json.loads(revised_lesson)
-                        except Exception:
-                            revised_lesson = draft_lesson
+            # Step 3: Critic Audit
+            audit_result = audit_and_revise_lesson(TEMP_LESSON)
+            revised_lesson = {}
+            if isinstance(audit_result, dict):
+                revised_lesson = audit_result.get("revised_lesson", {})
+                if isinstance(revised_lesson, str):
+                    try:
+                        revised_lesson = json.loads(revised_lesson)
+                    except Exception:
+                        revised_lesson = draft_lesson
 
-                if revised_lesson and isinstance(revised_lesson, dict):
-                    with open(TEMP_LESSON, "w", encoding="utf-8") as f:
-                        json.dump(revised_lesson, f, indent=2)
-
-                rubric_results = audit_result.get("rubric_audit_results", []) if isinstance(audit_result, dict) else []
-                all_passed = all(item.get("passed") for item in rubric_results) if rubric_results else True
-
-                if all_passed:
-                    print(f"   Critic pass {critic_pass}/{MAX_CRITIC_PASSES}: all rubric items passed.")
-                    break
-                else:
-                    print(f"   Critic pass {critic_pass}/{MAX_CRITIC_PASSES}: issues found, re-checking revision...")
+            if revised_lesson and isinstance(revised_lesson, dict):
+                with open(TEMP_LESSON, "w", encoding="utf-8") as f:
+                    json.dump(revised_lesson, f, indent=2)
 
             # Step 4: Build DOCX
             build_docx_from_json(TEMP_LESSON, output_docx)

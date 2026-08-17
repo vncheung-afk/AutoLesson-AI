@@ -89,6 +89,8 @@ def audit_and_revise_lesson(lesson_json_path: str) -> dict:
     [ ] NO LETTER COUNTING / NO REPETITIVE VOCAB: Vocabulary meanings MUST NOT repeat the word twice or use letter-counting.
     [ ] TENSE MATCHING: Story questions strictly match story tense.
     [ ] NO LOOKING BACK QUESTIONS: Page N questions only ask about Page N.
+    [ ] SHORT & NATURAL QUESTION PHRASING: Questions are short, natural spoken English (well under 10 words where possible) — not long, exam-style, or over-describing what's already visible in the picture. Example fix: "What is on the kite in the picture?" should be "What does the kite look like?"
+    [ ] PAGE NUMBERING: Cover counts as Page 1. The "pages" array starts at page_number 2 and continues sequentially — flag and fix if it starts at 1.
     [ ] QKIDS GAME BANK: Games MUST draw from the QKids Game Bank:
     {game_bank}
     [ ] TIMING BLOCKS: Divided into 3 explicit time blocks: (0:00–3:00) / (3:00–20:00) / (20:00–25:00).

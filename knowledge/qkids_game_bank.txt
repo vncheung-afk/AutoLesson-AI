@@ -7,6 +7,11 @@ QKIDS GAME BANK FRAMEWORK (Select 2 varied games per lesson):
   Teacher says: "Open your eyes! What's missing?"
   Student output: "The [shoe] is missing."
 
+- Invisible Man
+  Tools: Blank underscores on screen for a vocab word's letters. A stick figure appears piece by piece with each wrong letter guess.
+  Teacher says: "Guess a letter! Don't let the invisible man appear completely!"
+  Student output: "Is there a [B]?" ... then, once revealed: "The word is [book]!"
+
 2. GRAMMAR & SENTENCE GAMES
 - Sentence Builder
   Tools: Word/picture blocks pre-placed on screen (Dog | is | eating | meat).
@@ -29,3 +34,9 @@ QKIDS GAME BANK FRAMEWORK (Select 2 varied games per lesson):
 - Sound Hunt
   Teacher says: "Find things on screen with the /b/ sound."
   Student output: "Book starts with /b/."
+
+4. PICTURE BOOK THINKING GAMES
+- Story Relay
+  Tools: None needed — uses the book's characters or a page event as the starting point.
+  Teacher says: 3 words to start the story ("Once upon a...").
+  Student output: Adds the next 3 words, alternating turns with the teacher to build a complete mini-story together — practicing sentence flow and tracking what's already been said.
